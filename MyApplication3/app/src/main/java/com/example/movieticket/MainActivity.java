@@ -95,9 +95,8 @@ public class MainActivity extends AppCompatActivity implements MovieAdapter.OnMo
                     if (task.isSuccessful()) {
                         movieList.clear();
                         if (task.getResult().isEmpty()) {
-                            // If no data, seed some sample data
                             SeedData.seed(db);
-                            fetchMovies(); // Fetch again after seeding
+                            fetchMovies();
                             return;
                         }
                         for (QueryDocumentSnapshot document : task.getResult()) {
@@ -134,6 +133,12 @@ public class MainActivity extends AppCompatActivity implements MovieAdapter.OnMo
             return true;
         } else if (id == R.id.action_profile) {
             startActivity(new Intent(MainActivity.this, ProfileActivity.class));
+            return true;
+        } else if (id == R.id.action_theaters) {
+            startActivity(new Intent(MainActivity.this, TheatersActivity.class));
+            return true;
+        } else if (id == R.id.action_tickets) {
+            startActivity(new Intent(MainActivity.this, MyTicketsActivity.class));
             return true;
         }
         return super.onOptionsItemSelected(item);

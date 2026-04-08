@@ -5,6 +5,8 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+    <uses-permission android:name="android.permission.USE_EXACT_ALARM" />
 
     <application
         android:allowBackup="true"
@@ -29,6 +31,9 @@
         <activity android:name=".RegisterActivity" />
         <activity android:name=".MainActivity" />
         <activity android:name=".MovieDetailActivity" />
+        <activity android:name=".ProfileActivity" />
+        <activity android:name=".TheatersActivity" />
+        <activity android:name=".MyTicketsActivity" />
 
         <service
             android:name=".services.MyFirebaseMessagingService"
@@ -37,6 +42,10 @@
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
+
+        <receiver
+            android:name=".services.NotificationReceiver"
+            android:exported="false" />
 
     </application>
 
